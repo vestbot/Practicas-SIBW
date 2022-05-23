@@ -1,0 +1,31 @@
+{% extends "plantilla.html" %}
+
+{% block informacion %}
+    <title>Anicinema</title>
+    <link rel="stylesheet" href="./style/styles.css">
+{% endblock %}
+
+
+  {% block contenido %}
+
+  <div class ="comentario_editar">
+    <div id="error-add-producto">
+      {% if resultado == "error" %}
+          <p>Ha ocurrido un error, no se ha podido actualizar el comentario.</p>
+          <p> {{ errores }} </p>
+      {% endif %}
+    </div>
+
+
+    <strong>{{ comentario.autor }} {{ comentario.fecha }}</strong>
+    <form action="editar_comentarios.php?cm={{ comentario.id }}" method="post">
+      Texto del comentario: <br/>
+      <input type="text" name="texto_comment", value="{{ comentario.comentario }}" /><br/>
+
+      <input type="submit"  value="Editar comentario" />
+    </form>
+  </div>
+
+    
+
+  {% endblock %}

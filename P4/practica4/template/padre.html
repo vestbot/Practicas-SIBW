@@ -1,0 +1,70 @@
+<! DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="Victor">
+		{% block hojas estilo %}
+		<title> Practica3 </title>  <!-- bloque para añadir las diferentes hojas de estilo -->
+		<link rel="stylesheet" href="style/styles.css"> <!-- archivo con los estilos css que cogemos desde
+														la carpeta de estilos-->
+		{% endblock %}
+	</head>
+	<body>
+		<header>
+			<div class="titulo">
+				<h1> Anicinema </h1>
+			</div>
+			<div class="logo">
+				<img src="imgs/logo.png" alt="logotipo">
+			</div>
+		
+		</header> 
+
+		<ul class="menu">
+  					<li><a href="portada.html">Inicio</a></li>
+  					<li><a href="portada.html">Menu 1</a></li>
+  					<li><a href="portada.html">Menu 2</a></li>
+  					<li><a href="portada.html">Menu 3</a></li>
+		</ul>
+
+		<div class="main-container">
+			
+				{% block contenido %}  <!-- aqui vamos a añadir el código para cada producto pero ya no se repite, solo lo hacemos una vez -->
+				{% endblock %}
+			
+
+			<div class = "lateral">
+				<p> Próximamente en cartelera </p>
+				<ul>
+					<li> 
+						<a href="portada.html">Enlace de interés </a>
+					</li>
+
+					<li> 
+						<a href="portada.html">Enlace de interés </a>
+					</li>
+
+					<li> 
+						<a href="portada.html">Enlace de interés </a>
+					</li>
+
+					<li> 
+						<a href="portada.html">Enlace de interés </a>
+					</li>
+
+					<li> 
+						<a href="portada.html">Enlace de interés </a>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+
+		<footer>
+			<p> Pie </p>
+  			<p>© Copyright</p>
+        	<p>Víctor</p>
+  			
+		</footer>
+	</body>
+</html>

@@ -1,0 +1,195 @@
+/*Realizado por:  Víctor Esteban Bota*/
+/* Bloque donde introduciremos los detalles de cada producto */
+.producto-detalles{
+  width: 75%;
+  height: auto;
+  background-color: white;
+  margin-bottom: 10px;
+  display: flex;
+
+  text-align: justify;  
+}
+
+.producto_text{
+  order: 1;
+  margin-right: 2%;
+}
+
+.producto_text h1{
+  margin-left: 20px;
+  font-size: 300%;
+}
+
+.producto_text h2{
+  margin-left: 20px;
+  font-size: 200%;
+}
+
+.producto_text h3{
+  margin-left: 20px;
+  font-size: 150%;
+}
+
+.producto_text p{
+  margin-left: 20px;
+  font-size: 140%;
+}
+
+.producto_img{
+  order: 2;
+  max-height: 10%;
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.producto_img img{
+  margin-bottom: 10px;
+
+}
+
+.cast p {
+  margin-top: 10px;
+  font-size: 125%;
+   border-bottom: 1px solid rgb(211, 211, 211);
+   margin-left: 20px;
+   
+}
+
+.cast table,th,td{
+  border: 1px solid rgb(211, 211, 211);
+  border-collapse: collapse;
+  margin: 20px;
+  font-size: 120%;
+}
+
+.cast th{
+  background-color: #E8E7E7 ;
+}
+
+.enlaces p {
+  font-size: 125%;;
+   border-bottom: 1px solid rgb(211, 211, 211);
+   margin-left: 20px;
+
+}
+
+.enlaces a{
+  margin-left: 20px;
+   font-size: 130%;
+}
+
+.enlaces span{
+   font-size: 130%;
+}
+
+.etiquetas p  {
+  margin-top: 10px;
+  font-size: 125%;
+   border-bottom: 1px solid rgb(211, 211, 211);
+   margin-left: 20px;
+   
+}
+
+.botones_sociales{
+  margin-left: 20px;
+  margin-top: 30px;
+}
+
+/*Estilo de la barra de comentarios*/
+.seccion_comentarios{
+  width: 25%;
+   height: 75%; /* Full height */
+  display: none; 
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  right: 2;
+  top: 2; 
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #262424; /* Fallback color */
+}
+
+.muestra_comentarios{
+    width: 25%;
+    display: initial;
+    background-color: #6F7271;
+    color: white;
+}
+
+.muestra_comentarios h3{
+  text-align: center;
+}
+
+.comentario_pred{
+  margin-left: 5%;
+}
+
+.comentario_nuevo{
+  margin-left: 5%;
+}
+.comentario_nuevo input{
+  margin-right: 10%;
+}
+
+/* Para que el input de la parte del texto sea más grande */
+#texto-comentario{
+  height: 30%;
+  width: auto;
+}
+
+#enviar_comentario{
+  margin-top: 5%;
+}
+
+/* El bloque del diálogo modal no aparece en principio en la página */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content*/
+.modal-content {
+  background-color: lightskyblue;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; 
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.prod_edit{
+  position:  relative;
+ left:  45%;
+}
+
+.prod_edit img{
+  width: 5%;
+  height:  auto;
+}
+
+#imagen-subir{
+    max-width: 50%;
+}

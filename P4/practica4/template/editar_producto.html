@@ -1,0 +1,59 @@
+{% extends "plantilla.html" %}
+
+{% block informacion %}
+    <title>Anicinema</title>
+    <link rel="stylesheet" href="./style/styles.css">
+{% endblock %}
+
+{% block contenido %}
+
+    <div class="add-producto">
+        <div id="error-add-producto">
+            {% for e in errores %}
+                <p>{{e}}</p>
+            {% endfor %}
+
+            {% if resultado == "insertado" %}
+                <p>¡Producto editado!</p>
+                <a href="index.php">Vuelve a la página principal</a>
+            {% elseif resultado == "error" %}
+                <p>Ha ocurrido un error, comprueba los datos introducidos</p>
+            {% endif %}
+        </div>
+        
+        <form action="editar_producto.php?prod={{ producto.id }}" method="post" enctype="multipart/form-data">
+            Nombre: <br>
+            <input type="text" name="nombre", value="{{ producto.nombre }}" /><br>
+            Estudio: <br>
+            <input type="text" name="estudio", value="{{ producto.estudio }}" /><br>
+            Precio: <br>
+            <input type="text" name="precio", value="{{ producto.precio }}" /><br>
+            Descripción: <br>
+            <textarea name="descripcion" id="area_texto">{{ producto.descripcion }}</textarea><br>
+            <!--<input type="text" name="descripcion", value="{{ producto.descripcion }}" /><br>-->
+            Reparto: <br>
+            <textarea name="reparto" id="area_texto">{{ producto.reparto }}</textarea><br>
+            <!--<input type="text" name="reparto", value="{{ producto.reparto }}" /><br>-->
+            Enlaces: <br>
+            <textarea name="enlace" id="area_texto">{{ producto.enlaces }}</textarea><br>
+            <!--<input type="text" name="enlace", value="{{ producto.enlaces }}" /><br> -->
+            Etiquetas: <br>
+            <input type="text" name="etiquetas", value="{{ producto.etiquetas }}" /><br>
+            Las imágenes se sobreescribirán con las originales, asegúrate de seleccionar todas las que quieres <br>
+            Portada: <br> 
+            <input type="file" name="portada" /><br>
+            Imagen: <br> 
+            <input type="file" name="imagenes[]" multiple="multiple"/><br>
+
+            <input type="submit" value="Editar producto" />
+          </form>
+
+        <!--<div id="imagen-subir">
+            {% if imagen %}
+                <img src="{{imagen}}" />
+            {% endif %}
+        </div>-->
+
+    </div>
+
+  {% endblock %}

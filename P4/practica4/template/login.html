@@ -1,0 +1,28 @@
+{% extends "plantilla.html" %}
+
+{% block informacion %}
+    <title>Anicinema</title>
+    <link rel="stylesheet" href="./style/styles.css">
+{% endblock %}
+
+  {% block contenido %}
+
+    <div class="login">
+      <div class="error-login" id="error-add-producto">
+        {% if resultado == "error" %}  <!-- si encontramos un error haciendo el login lo sacamos por pantalla -->
+            <p>Ha ocurrido un error, comprueba los datos introducidos</p>
+        {% endif %}
+      </div>
+      
+      <form action="login.php" method="post"> <!-- Formulario para añadir los datos de un usuario registrado -->
+        Nick:<br>                                   <!-- el method post  para luego recibirlo con php-->
+        <input type="text" name="nick" /><br>
+        Password:<br>
+        <input type="password" name="contraseña" /><br>
+        <input type="submit" value="Login" />
+      </form>
+
+      <p>¿No tienes cuenta? <a href="registrarse.php"> Regístrate</a></p>
+    </div>
+
+  {% endblock %}

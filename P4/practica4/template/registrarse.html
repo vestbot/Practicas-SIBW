@@ -1,0 +1,37 @@
+{% extends "plantilla.html" %}
+
+{% block informacion %}
+    <title>Anicinema</title>
+    <link rel="stylesheet" href="./style/styles.css">
+{% endblock %}
+
+  {% block contenido %}
+
+    <div class="login">
+
+      <div class="error-login" id="error-add-producto">
+         {% if errores is empty %}
+             {% if resultado == "error" %}
+             <p> Datos repetidos por favor introduzca otros</p>
+             {% endif %}
+        {% else %}
+          {% for e in errores %}
+              <p> {{e}} </p> 
+            {% endfor %}
+        {% endif %}
+       
+      </div>
+      
+      <form action="registrarse.php" method="post">
+        Nick:<br>
+        <input type="text" name="nick" /><br>
+        Email:<br>
+        <input type="text" name="email" /><br>
+        Password:<br>
+        <input type="password" name="contraseña" /><br>
+        <input type="submit" value="Login"/>
+      </form>
+
+    </div>
+
+  {% endblock %}

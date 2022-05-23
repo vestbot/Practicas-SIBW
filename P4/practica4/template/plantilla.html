@@ -1,0 +1,97 @@
+<! DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="Victor">
+		{% block estilos %}
+		<title> Practica3 </title>  <!-- bloque para añadir las diferentes hojas de estilo -->
+		<link rel="stylesheet" href="style/styles.css"> <!-- archivo con los estilos css que cogemos desde
+														la carpeta de estilos-->
+		{% endblock %}
+	</head>
+	<body>
+		<header>
+			<div class="titulo">
+				<h1> Anicinema </h1>
+			</div>
+			<div class="logo">
+				<img src="imgs/logo.png" alt="logotipo">
+			</div>
+
+			<div class="registrarse">
+			
+            </div>
+		
+		</header> 
+
+		<ul class="menu">
+  					<li><a href="index.php">Inicio</a></li>
+  					<li><a href="index.php">Menu 1</a></li>
+  					<li><a href="index.php">Menu 2</a></li>
+  					<li><a href="index.php">Menu 3</a></li>
+		</ul>
+
+		<div class="main-container">
+			
+				{% block contenido %}  <!-- aqui vamos a añadir el código para cada producto pero ya no se repite, solo lo hacemos una vez -->
+				{% endblock %}
+			
+
+			<div class = "lateral">
+				<ul>
+				{% if not user %}
+	                    <li>
+	                        <a href="login.php">Login</a>
+	                    </li>
+	                {% else %}
+	                    <li>
+	                        <a href="perfil.php">Mi perfil</a>
+	                    </li>
+	                    <li>
+	                        <a href="logout.php">Logout</a>
+	                    </li>
+
+	                    {% if user.rol == 'moderador' or user.rol == 'gestor' or user.rol == 'superusuario' %}
+	                        <li>
+	                            <a href="lista_comentarios.php">Lista de Comentarios</a>
+	                        </li>
+
+	                        <li>
+	                            <a href="buscadores.php">Buscadores</a>
+	                        </li>
+
+	                        {% if user.rol == 'gestor' or user.rol == 'superusuario' %}
+
+	                            <li>
+	                                <a href="add_producto.php">Añadir Producto</a>
+	                            </li>
+
+	                            <li>
+	                                <a href="lista_productos.php">Lista de Productos</a>
+	                            </li>
+
+	                            {% if user.rol == 'superusuario' %}
+	                            <li>
+	                                <a href="cambiar_roles.php">Cambiar roles</a>
+	                            </li>
+
+	                            {% endif %}
+
+	                        {% endif %}
+
+	                    {% endif %}
+	            {% endif %}
+        	</ul>
+			</div>
+		</div>
+
+		<footer>
+			<p> Pie </p>
+  			<p>© Copyright</p>
+        	<p>Víctor</p>
+  			
+		</footer>
+
+		
+	</body>
+</html>

@@ -1,0 +1,62 @@
+{% extends "plantilla.html" %}
+
+{% block informacion %}
+    <title>Login</title>
+    <link rel="stylesheet" href="./style/styles.css">
+{% endblock %}
+
+{% block contenido %}
+
+  
+
+    <div class="add-producto">
+        <div id="error-add-producto">
+            {% for e in errores %}
+                <p>{{e}}</p>
+            {% endfor %}
+
+            {% if resultado == "insertado" %}
+                <p>¡Producto añadido!</p>
+                <a href="index.php">Vuelve a la página principal</a>
+            {% elseif resultado == "error" %}
+                <p>Ha ocurrido un error, comprueba los datos introducidos</p>
+            {% endif %}
+        </div>
+        
+        <form action="add_producto.php" method="post" enctype="multipart/form-data">
+            Nombre: <br>
+            <input type="text" name="nombre" /><br>
+            Estudio: <br>
+            <input type="text" name="estudio" /><br>
+            Precio: <br>
+            <input type="text" name="precio" /><br>
+            Descripción: <br>
+            <textarea name="descripcion" id="area_texto"></textarea><br>
+            <!--<input type="text" name="descripcion" /><br> -->
+           	Reparto: <br>
+           	<textarea name="reparto" id="area_texto"></textarea><br>
+            <!--<input type="text" name="reparto" /><br>-->
+            Enlaces: <br>
+            <textarea name="enlace" id="area_texto"></textarea><br>
+            <!--<input type="text" name="enlace" /><br> -->
+            Etiquetas: <br>
+            <input type="text" name="etiquetas" /><br>
+            Portada: <br> 
+            <input type="file" name="portada" /><br>
+            Imagenes: <br> 
+            <input type="file" name="imagenes[]" multiple="multiple"/><br>
+
+            <input type="submit" value="Añadir producto" />
+          </form>
+
+        <div id="imagen-subir">
+            {% if imagen %}
+                <img src="{{imagen}}" />
+            {% endif %}
+        </div>
+
+    </div>
+
+    
+
+  {% endblock %}

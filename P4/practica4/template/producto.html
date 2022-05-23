@@ -1,0 +1,133 @@
+{% extends "plantilla.html" %}
+
+{% block estilos %}
+    <title>Producto</title>
+    <link rel="stylesheet" href="style/styles.css">
+    <link rel="stylesheet" href="style/style_product.css">
+    <script type="text/javascript" src="javascript/seccion_comentarios.js" defer></script>
+
+    <script>
+        var palabras_pro = [];
+        {% for word in lista_palabras %}
+            palabras_pro.push({{ word.palabra| json_encode | raw }});
+        {% endfor %}
+    </script>
+{% endblock %}
+
+{% block contenido %}
+    
+           
+            <div class="seccion_comentarios", id="comentarios_producto">
+                <div class="parte_comentarios" id="parte_comentarios">
+                    <h3> Comentarios </h3>
+                    {% for comment in lista_comentarios %}
+                        <div class="comentario_pred">
+                            <p> {{comment.autor}} {{comment.fecha}} </p>
+                            <p> {{comment.comentario}} </p>
+                             {% if comment.editado %}
+                                <p><br>Comentario editado</p>
+                            {% endif %}
+                        </div>
+
+                       
+
+                        {% if user.rol == 'moderador' or user.rol == 'gestor' or user.rol == 'superusuario' %}
+                             <div class="edito_borro">
+                                <a href="editar_comentarios.php?cm={{ comment.id }}"> 
+                                  <img src= "./imgs/edit-button.png" alt="boton_editar">
+                                </a>
+
+                                <a href="borrar_comentarios.php?cm={{ comment.id }}"> 
+                                  <img src= "./imgs/delete.png" alt="boton_borrar">
+                                </a>
+                            </div>
+
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+       
+       
+   
+                {% if user %}
+                    <div class="comentario_nuevo" id="comentario_nuevo">
+                           <form action="producto.php?prod={{ producto.id }}" method="post">
+                                Nombre:
+                                <input type="text" id="nombre", value="{{ user.username }}"> <br/>
+                                Email: 
+                                <input type="text" id="email", value="{{ user.email }}"> <br/>
+                                Texto:  <br/>
+                                <textarea name="texto" id="texto-comentario"></textarea><br/>
+                                <input type="submit" value="Enviar" id="enviar-comentario" />
+                            </form>
+                       
+                    </div>
+                {% endif %}
+            </div>
+
+
+            <div class ="producto-detalles">
+                
+                
+                <div class="producto_img">
+                    {% for imagen in lista_imagenes %}
+                        <img src="{{imagen.ruta}}" alt="{{imagen.pie}}">      
+                    {% endfor %}
+                    
+                </div> 
+                <div class="producto_text">
+                    <h1> {{producto.nombre}} </h1>
+                    <h2> Estudio : {{producto.estudio}} </h2>
+                    <h3> Precio : {{producto.precio}} </h3>
+
+                    {{producto.descripcion | raw }}
+
+                    <div class="cast"> 
+                        <p> <strong>Cast</strong> </p>
+                        {{producto.reparto | raw }}
+
+                     </div>
+
+                    <div class="enlaces">
+                        <p> <strong> Enlaces Externos</strong> </p>
+                        {{producto.enlaces | raw }}
+                    </div>
+
+                     <div class="etiquetas">
+                        <p> <strong> Etiquetas</strong> </p>   
+                    </div>
+                    {{producto.etiquetas | raw }}
+
+                    <div class="botones_sociales">
+                        <button onclick="window.location.href='http://twitter.com';">Twitter</button>
+                        <button onclick="window.location.href='http://facebook.com';">Facebook</button>
+                        <button onclick="window.location.href='./producto_imprimir.php?prod={{ producto.id }}'">Imprimir</button>
+                        <button id="comentarios">Comentarios</button>
+                        {% if user.rol == 'gestor' or user.rol == 'superusuario' %}
+                            <div class="prod_edit">
+                                <a href="editar_producto.php?prod={{ producto.id }}"> 
+                                  <img src= "./imgs/edit-button.png" alt="boton_editar">
+                                </a>
+
+                                <a href="borrar_productos.php?prod={{ producto.id }}"> 
+                                  <img src= "./imgs/delete.png" alt="boton_borrar">
+                                </a>
+                            </div>
+
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <!--  Bloque para el dialogo modal-->
+            <div id="myModal" class="modal">
+
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                <p id="error_modal">Errores</p>
+              </div>
+
+            </div>
+            
+{% endblock %}

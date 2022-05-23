@@ -1,0 +1,42 @@
+{% extends "plantilla.html" %}
+
+{% block informacion %}
+    <title>Anicinema</title>
+    <link rel="stylesheet" href="./style/styles.css">
+{% endblock %}
+
+  {% block contenido %}
+
+   
+
+     <div class="lista_com">
+
+      <div id="error-add-producto">
+            {% if resultado == "error" %}
+                <p> La búsqueda no ha obtenido resultados, asegurese de que lo ha escrito bien o que hay comentarios en el sistema </p>
+            {% endif %}
+      </div>
+    {% for comment in lista_comentarios %} 
+    <li>
+             
+        <strong>{{comment.autor}} {{comment.fecha}} </strong>
+        <p> {{comment.comentario}} </p>
+
+        {% if comment.editado %}
+            <p><br>Comentario editado</p>
+        {% endif %}
+
+      <div class="edito_borro">
+        <a href="editar_comentarios.php?cm={{ comment.id }}"> 
+          <img src= "./imgs/edit-button.png" alt="boton_editar">
+        </a>
+
+        <a href="borrar_comentarios.php?cm={{ comment.id }}"> 
+          <img src= "./imgs/delete.png" alt="boton_borrar">
+        </a>
+    </div>
+    </li>
+    {% endfor %}
+    </div>
+
+  {% endblock %}

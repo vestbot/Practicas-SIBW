@@ -1,0 +1,38 @@
+{% extends "plantilla.html" %}
+
+{% block informacion %}
+    <title>Anicinema</title>
+    <link rel="stylesheet" href="./style/styles.css">
+{% endblock %}
+
+  {% block contenido %}
+   
+    <div class ="contenido">
+
+      <div id="error-add-producto">
+            {% if resultado == "error" %}
+                <p> La búsqueda no ha obtenido resultados, asegurese de que lo ha escrito bien o que hay productos en el sistema </p>
+            {% endif %}
+      </div>
+      
+        {% for producto in lista_productos %} 
+            <div class="lista_producto">
+                        
+                <img src= {{ producto.foto_portada }} >
+                        
+                <h3> {{ producto.nombre }} </h3>
+
+                <div class="edito_borro_prod">
+                    <a href="editar_producto.php?prod={{ producto.id }}"> 
+                      <img src= "./imgs/edit-button.png" alt="boton_editar">
+                    </a>
+
+                    <a href="borrar_productos.php?prod={{ producto.id }}"> 
+                      <img src= "./imgs/delete.png" alt="boton_borrar">
+                    </a>
+                </div>
+                        
+            </div>
+        {% endfor %}
+    </div>
+  {% endblock %}

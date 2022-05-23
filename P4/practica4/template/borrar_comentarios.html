@@ -1,0 +1,21 @@
+{% extends "plantilla.html" %}
+
+{% block informacion %}
+    <title>Login</title>
+    <link rel="stylesheet" href="./style/styles.css">
+{% endblock %}
+
+  {% block contenido %}
+
+  
+
+    <div class="login">
+        <form action="borrar_comentarios.php?cm={{ comentario.id }}" method="post" enctype="multipart/form-data">
+            Confirme que quiere borrar el comentario o <a href="index.php">vuelva a la página del producto</a> <br/>
+            <input type="submit" value="Borrar comentario" />
+        </form>
+
+    </div>
+    
+
+  {% endblock %}

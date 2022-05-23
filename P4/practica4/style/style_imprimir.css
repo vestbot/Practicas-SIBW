@@ -1,0 +1,133 @@
+/*Realizado por:  Víctor Esteban Bota*/
+
+header{
+  column-gap: 15%;
+  background-color: white;
+
+}
+footer{
+  background-color: white;
+}
+footer p{
+  color: black;
+}
+
+header .logo{
+  order: 2;
+}
+
+header .titulo{
+  order: 1;
+  margin-left: 40%;
+}
+
+header h1{
+  font-family: Arial;
+   color : black;
+}
+/* Bloque donde introduciremos los detalles de cada producto */
+.producto-detalles{
+  width: 100%;
+  height: auto;
+  background-color: white;
+  margin-bottom: 10px;
+  display: flex;
+
+  text-align: justify;  
+}
+
+.producto_text{
+  width: 85%;
+  order: 1;
+  margin-right: 2%;
+}
+
+.producto_text h1{
+  margin-left: 20px;
+  font-size: 300%;
+}
+
+.producto_text h2{
+  margin-left: 20px;
+  font-size: 200%;
+}
+
+.producto_text h3{
+  margin-left: 20px;
+  font-size: 150%;
+}
+
+.producto_text p{
+  margin-left: 20px;
+  font-size: 140%;
+}
+
+.producto_img{
+  order: 2;
+
+  max-height: 10%;
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+  float: left;
+
+}
+
+.producto_img img{
+  margin-bottom: 10px;
+
+}
+
+.cast p {
+  margin-top: 10px;
+  font-size: 20px;
+   border-bottom: 1px solid rgb(211, 211, 211);
+   margin-left: 20px;
+}
+
+.cast table,th,td{
+  border: 1px solid rgb(211, 211, 211);
+  border-collapse: collapse;
+  margin: 20px;
+   font-size: 120%;
+}
+
+.cast th{
+  background-color: #E8E7E7 ;
+}
+
+.enlaces p {
+  font-size: 20px;
+   border-bottom: 1px solid rgb(211, 211, 211);
+   margin-left: 20px;
+}
+
+.enlaces a{
+  margin-left: 20px;
+   font-size: 130%;
+}
+
+.enlaces span{
+   font-size: 130%;
+}
+
+/*Escondemos objetos*/
+.botones_sociales button{
+  display: none;
+}
+
+.botones-sociales p{
+  display:  none;
+}
+
+.menu{
+  display: none;
+}
+
+.lateral{
+  display: none;
+}
+
+.seccion_comentarios {
+  display: none;
+}

@@ -1,0 +1,21 @@
+{% extends "plantilla.html" %}
+
+{% block informacion %}
+    <title>Login</title>
+    <link rel="stylesheet" href="./style/styles.css">
+{% endblock %}
+
+  {% block contenido %}
+
+  
+
+    <div class="login">
+        <form action="borrar_productos.php?prod={{ producto.id }}" method="post" enctype="multipart/form-data">
+            Confirme que quiere borrar el producto o <a href="index.php">vuelva a la página principal</a> <br/>
+            <input type="submit" value="Borrar producto" />
+        </form>
+
+    </div>
+    
+
+  {% endblock %}

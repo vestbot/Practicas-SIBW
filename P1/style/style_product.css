@@ -1,0 +1,79 @@
+/*Realizado por:  Víctor Esteban Bota*/
+/* Bloque donde introduciremos los detalles de cada producto */
+.producto-detalles{
+  width: 75%;
+  height: auto;
+  background-color: white;
+  margin-bottom: 10px;
+  display: flex;
+
+  text-align: justify;  
+}
+
+.producto_text{
+  order: 1;
+  margin-right: 2%;
+}
+
+.producto_text h1{
+  margin-left: 20px;
+}
+
+.producto_text h2{
+  margin-left: 20px;
+}
+
+.producto_text h3{
+  margin-left: 20px;
+}
+
+.producto_text p{
+  margin-left: 20px;
+}
+
+.producto_img{
+  order: 2;
+  max-height: 10%;
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+  float: left;
+
+}
+
+.producto_img img{
+  margin-bottom: 10px;
+
+}
+
+.cast p {
+  margin-top: 10px;
+  font-size: 20px;
+   border-bottom: 1px solid rgb(211, 211, 211);
+   margin-left: 20px;
+}
+
+.cast table,th,td{
+  border: 1px solid rgb(211, 211, 211);
+  border-collapse: collapse;
+  margin: 20px;
+}
+
+.cast th{
+  background-color: #E8E7E7 ;
+}
+
+.enlaces p {
+  font-size: 20px;
+   border-bottom: 1px solid rgb(211, 211, 211);
+   margin-left: 20px;
+}
+
+.enlaces a{
+  margin-left: 20px;
+}
+
+.botones_sociales{
+  margin-left: 20px;
+  margin-top: 30px;
+}

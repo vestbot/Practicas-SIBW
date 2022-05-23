@@ -1,0 +1,28 @@
+{% extends "plantilla.html" %}
+
+{% block informacion %}
+    <title>Anicinema</title>
+    <link rel="stylesheet" href="./style/styles.css">
+{% endblock %}
+
+
+
+{% block contenido %}
+
+   
+
+    <div class="contenido">
+
+        {% for producto in lista_productos %} <!-- Así hacemos los bucles -->
+            <div class="producto">
+                    <a href = "producto.php?prod={{producto.id}}"> <!-- Pongo uno ahora mismo para que se vaya a la única página que tengo creada -->
+                        <img src= {{ producto.foto_portada }} >
+                    </a>
+                    <a href = "producto.php?prod={{producto.id}}">
+                        <h3> {{ producto.nombre }} </h3>
+                    </a>
+                </div>
+        {% endfor %}
+        
+    </div>
+{% endblock %}
